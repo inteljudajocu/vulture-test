@@ -33,6 +33,13 @@ main:
     page: true
     include:
       - article
+side:
+  _componentList:
+    include:
+      - advertisement
+      - most-viewed-stories
+      - advertisement
+      - most-viewed-stories
 primary:
   _componentList:
     include: []

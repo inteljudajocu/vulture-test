@@ -97,6 +97,48 @@ _components:
         componentVariation: header
         mobileCTA: Support Us
         mobileCTALink: 'https://www.google.com'
+  most-viewed-stories:
+    instances:
+      top-side:
+        componentVariation: mostViewedStories
+        stories: []
+      bottom-side:
+        stories: []
+  advertisement:
+    instances:
+      top-side:
+        componentVariation: advertisement
+        imageUrl: ''
+        imageSrc: ''
+      bottom-side:
+        imageUrl: ''
+        imageSrc: ''
+  vulture-section:
+    instances:
+      header:
+        componentVariation: vultureSection
+        theCut: ''
+        style: ''
+        self: ''
+        culture: ''
+        power: ''
+      footer:
+        theCut: ''
+        style: ''
+        self: ''
+        culture: ''
+        power: ''
+  magazine-section:
+    instances:
+      header:
+        componentVariation: magazineSection
+        intelligencer: ''
+        theCut: ''
+        vulture: ''
+        grubStreet: ''
+        newYork: ''
+        theStrategist: ''
+        theMagazine: ''
   footer:
     instances:
       claydemo:
