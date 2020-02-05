@@ -144,6 +144,14 @@ _components:
       claydemo:
         componentVariation: footer
         footerLinks: []
+  more-to-explore:
+    instances:
+      footer:
+        componentVariation: toExplore
+        title: ''
+        imageUrl: ''
+        articleRef: ''
+        author: ''
   paragraph:
     instances:
       new:
@@ -203,6 +211,9 @@ _components:
             _ref: /_components/paragraph/instances/new
         tags:
           _ref: /_components/tags/instances/new
+        explore:
+          -
+            _ref: /_components/more-to-explore/instances/footer
       sample:
         headline: 'Clay Starter Article'
         feedImgUrl: 'https://s.abcnews.com/images/Lifestyle/puppy-ht-3-er-170907_4x3_992.jpg'
@@ -218,3 +229,6 @@ _components:
             _ref: /_components/paragraph/instances/new
         tags:
           _ref: /_components/tags/instances/sample
+        explore:
+          -
+            _ref: /_components/more-to-explore/instances/footer

@@ -118,6 +118,11 @@ canonicalUrl:
   _has:
     help: Canonical URL of an article. Set when the article publishes.
 
+explore:
+  _componentList:
+    include:
+      - more-to-explore
+
 tags:
   _component:
     include:
