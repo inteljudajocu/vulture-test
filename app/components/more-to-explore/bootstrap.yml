@@ -2,4 +2,5 @@ _components:
   componentVariation: toExplore
   title: ''
   imageUrl: ''
+  articleRef: ''
   author: ''
