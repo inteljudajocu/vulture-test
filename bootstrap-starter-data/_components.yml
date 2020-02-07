@@ -149,9 +149,9 @@ _components:
       footer:
         componentVariation: toExplore
         title: ''
-        imageUrl: ''
-        articleRef: ''
-        author: ''
+        image: ''
+        url: ''
+        author: []
   paragraph:
     instances:
       new:
