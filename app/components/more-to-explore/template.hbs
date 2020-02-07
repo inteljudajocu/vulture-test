@@ -10,8 +10,8 @@
                 <span class="explore-title">{{ title }}</span>
             </a>
             <ol>
-                {{#each author}}
-                <li><span class="explore-author">{{ author.text }}</span></li>
+                {{#each author as |thor|}}
+                <li><span class="explore-author">{{ thor }}</span></li>
                 {{/each }}
             </ol>
         </li>

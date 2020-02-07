@@ -43,7 +43,14 @@ function parseComponent(ops) {
   const mainComponent = getMainComponentRef(ops),
     tags = getComponentByName(ops, 'tags'),
     { items } = tags.value,
-    { headline, date, canonicalUrl, byline, ledeUrl } = mainComponent.value;
+    { headline, date, canonicalUrl, byline, ledeUrl } = mainComponent.value,
+    authors = [];
+
+  byline.forEach(element => {
+    authors.push(element.text);
+  });
+
+  console.log(authors);
 
   return {
     key: mainComponent.key,
@@ -51,7 +58,7 @@ function parseComponent(ops) {
       url: canonicalUrl,
       date: date,
       title: headline,
-      author: byline,
+      author: authors,
       image: ledeUrl,
       items
     }
