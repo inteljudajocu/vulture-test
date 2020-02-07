@@ -1,4 +1,8 @@
 _pages:
+  sample-gallery:
+    layout: /_layouts/layout/instances/gallery
+    main:
+      - /_components/article/instances/sample-gallery
   sample-article:
     layout: /_layouts/layout/instances/article
     main:

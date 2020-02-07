@@ -152,6 +152,16 @@ _components:
         image: ''
         url: ''
         author: []
+  related-galleries:
+    instances:
+      sidebar:
+        componentVariation: relatedGallery
+        gallery: []
+  carousel-gallery:
+    instances:
+      sidebar:
+        componentVariation: relatedGallery
+        gallery: []
   paragraph:
     instances:
       new:
@@ -196,6 +206,24 @@ _components:
         link: ''
   article:
     instances:
+      sample-gallery:
+        headline: ''
+        feedImgUrl: ''
+        ledeUrl: ''
+        byline:
+          -
+            text: Clay
+        ledeCaption: ''
+        ledeCredit: ''
+        slug: ''
+        content:
+          -
+            _ref: /_components/paragraph/instances/new
+        tags:
+          _ref: /_components/tags/instances/new
+        explore:
+          -
+            _ref: /_components/carousel-gallery/instances/footer
       new-standard:
         headline: ''
         feedImgUrl: ''

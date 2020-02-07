@@ -50,8 +50,6 @@ function parseComponent(ops) {
     authors.push(element.text);
   });
 
-  console.log(authors);
-
   return {
     key: mainComponent.key,
     source: {
