@@ -1,8 +1,15 @@
 _pages:
   sample-gallery:
-    layout: /_layouts/layout/instances/gallery
+    layout: /_layouts/layout-gallery/instances/gallery
     main:
       - /_components/article/instances/sample-gallery
+    head:
+      - /_components/meta-title/instances/gallery
+      - /_components/meta-url/instances/gallery
+      - /_components/meta-description/instances/gallery
+      - /_components/meta-image/instances/gallery
+      - /_components/meta-keywords/instances/gallery
+      - /_components/meta-authors/instances/gallery
   sample-article:
     layout: /_layouts/layout/instances/article
     main:

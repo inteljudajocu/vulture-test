@@ -8,6 +8,8 @@ _components:
         title: ''
       homepage:
         title: ''
+      gallery:
+        title: ''
   meta-url:
     instances:
       new:
@@ -16,6 +18,8 @@ _components:
         url: ''
       homepage:
         url: ''
+      gallery:
+        url: ''
   meta-description:
     instances:
       new:
@@ -23,6 +27,8 @@ _components:
       new-author:
         description: ''
       homepage:
+        description: ''
+      gallery:
         description: ''
   meta-icons:
     instances:
@@ -39,6 +45,8 @@ _components:
         imageUrl: ''
       homepage:
         imageUrl: ''
+      gallery:
+        imageUrl: ''
   meta-authors:
     instances:
       new:
@@ -47,6 +55,8 @@ _components:
         authors: []
       homepage:
         authors: []
+      gallery:
+        authors: []
   meta-keywords:
     instances:
       new:
@@ -54,6 +64,8 @@ _components:
       new-author:
         tags: []
       homepage:
+        tags: []
+      gallery:
         tags: []
   meta-site:
     instances:
@@ -89,7 +101,14 @@ _components:
         siteName: Clay Demo
         ogType: website
         pageType: Home Page
-
+      gallery:
+        twitter: '@claydemo'
+        facebook: 'claydemo'
+        facebookID: 'claydemo'
+        vertical: ''
+        siteName: Clay Demo
+        ogType: website
+        pageType: Home Page
   # layout components
   header:
     instances:
@@ -152,15 +171,15 @@ _components:
         image: ''
         url: ''
         author: []
-  related-galleries:
-    instances:
-      sidebar:
-        componentVariation: relatedGallery
-        gallery: []
+  # related-gallery:
+  #   instances:
+  #     side:
+  #       componentVariation: relatedGallery
+  #       gallery: []
   carousel-gallery:
     instances:
-      sidebar:
-        componentVariation: relatedGallery
+      footer:
+        componentVariation: gallery
         gallery: []
   paragraph:
     instances:

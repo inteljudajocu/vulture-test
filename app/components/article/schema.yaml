@@ -122,6 +122,7 @@ explore:
   _componentList:
     include:
       - more-to-explore
+      - related-galleries
 
 tags:
   _component:
