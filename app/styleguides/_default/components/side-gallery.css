@@ -1,5 +1,5 @@
 $duration: 450ms;
-$tileWidth: 150px;
+$tileWidth: 250px;
 $tileHeight: ($tileWidth / (16/9));
 $iconSize: 50px;
 $growFactor: 1.5;
@@ -18,6 +18,10 @@ $moveRight: $tileWidth * ($growFactor - 1);
   flex-direction: column;
   align-items: center;
   width: 100%;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 .side-gal {
