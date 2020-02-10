@@ -171,11 +171,10 @@ _components:
         image: ''
         url: ''
         author: []
-  # related-gallery:
-  #   instances:
-  #     side:
-  #       componentVariation: relatedGallery
-  #       gallery: []
+  side-gallery:
+    instances:
+      side:
+        gallery: []
   carousel-gallery:
     instances:
       footer:
