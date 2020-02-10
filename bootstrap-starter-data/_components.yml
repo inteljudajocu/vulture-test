@@ -180,6 +180,7 @@ _components:
     instances:
       footer:
         componentVariation: gallery
+        ledeImage: ''
         gallery: []
   paragraph:
     instances:

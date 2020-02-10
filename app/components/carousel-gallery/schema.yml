@@ -12,7 +12,13 @@ gallery:
           input: text
           type: url
 
+ledeImage:
+  _has:
+    input: text
+    type: url
+
 _groups:
   settings:
     fields:
+    - ledeImage
     - gallery
