@@ -25,7 +25,7 @@ $moveRight: $tileWidth * ($growFactor - 1);
 }
 
 .side-gal {
-  width: 100%;
+  width: 40vh;
 }
 
 .row {
@@ -43,7 +43,7 @@ $moveRight: $tileWidth * ($growFactor - 1);
 
 .tile {
   position: relative;
-  display: inline-block;
+  /* display: inline-block; */
   width: $tileWidth;
   height: $tileHeight;
   margin-right: 10px;

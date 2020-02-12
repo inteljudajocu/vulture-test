@@ -6,7 +6,9 @@ const _get = require('lodash/get'),
   dateParse = require('date-fns/parse'),
   utils = require('../../services/universal/utils'),
   has = utils.has, // convenience
-  sanitize = require('../../services/universal/sanitize');
+  sanitize = require('../../services/universal/sanitize'),
+  clayutils = require('clayutils'),
+  paras = [];
 
 /**
  * only allow emphasis, italic, and strikethroughs in headlines
@@ -71,6 +73,34 @@ function generateFeedImage(data) {
     data.feedImgUrl = data.ledeUrl;
   }
 }
+
+function addAdvertesiment(data) {
+  let temp, m;
+
+  for (let index = 0; index < data.length; index++) {
+    if (
+      clayutils.getComponentName(data[index]._ref) == 'paragraph' &&
+      index % 4 === 0 && index != 0
+    ) {
+      temp = data[index];
+      m = temp._ref.replace('paragraph', 'advertisement');
+      temp._ref = m;
+      // t = m.substring(0, m.lastIndexOf('/') + 1);
+      // temp._ref = t.concat('top-side');
+      paras.push(temp);
+      console.log(temp);
+    } else paras.push(data[index]);
+  }
+  console.log(paras);
+  return data;
+}
+
+module.exports.render = function(uri, data) {
+  let { content } = data;
+
+  // addAdvertesiment(content);
+  return data;
+};
 
 module.exports.save = function(uri, data, locals) {
   // first, let's get all the synchronous stuff out of the way:
