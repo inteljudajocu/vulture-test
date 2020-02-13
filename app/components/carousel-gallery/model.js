@@ -7,7 +7,15 @@ const { search } = require('../../services/server/elastic'),
     from: 1,
     sort: [{ date: 'desc' }],
     query: {
-      match_all: {}
+      bool: {
+        must: [
+          {
+            terms: {
+              'items.text': ['pedro', 'steph']
+            }
+          }
+        ]
+      }
     }
   };
 
@@ -21,6 +29,8 @@ function getArticleElastic(data) {
     });
 }
 
-module.exports.render = function(uri, data) {
+module.exports.render = function(uri, data, local) {
+  console.log(uri, local);
+
   return getArticleElastic(data).then(data => data);
 };

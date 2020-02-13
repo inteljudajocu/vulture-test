@@ -88,17 +88,17 @@ function addAdvertesiment(data) {
       // t = m.substring(0, m.lastIndexOf('/') + 1);
       // temp._ref = t.concat('top-side');
       paras.push(temp);
-      console.log(temp);
     } else paras.push(data[index]);
   }
-  console.log(paras);
-  return data;
+  return paras;
 }
 
-module.exports.render = function(uri, data) {
+module.exports.render = function(uri, data, local) {
+  console.log(local);
+
   let { content } = data;
 
-  // addAdvertesiment(content);
+  addAdvertesiment(content);
   return data;
 };
 
