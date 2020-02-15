@@ -98,9 +98,7 @@ function addAdvertesiment(data) {
   return paras;
 }
 
-module.exports.render = function(uri, data, local) {
-  console.log(local, data);
-
+module.exports.render = function(uri, data) {
   let { content } = data;
 
   addAdvertesiment(content);

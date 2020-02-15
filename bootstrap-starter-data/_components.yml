@@ -175,6 +175,11 @@ _components:
     instances:
       side:
         gallery: []
+  youtube-player:
+    instances:
+      footer:
+        videoSrc: ''
+        onRepeat: false
   carousel-gallery:
     instances:
       footer:

@@ -1,0 +1,17 @@
+_description:
+  Youtube player with an optional auto loop
+
+videoSrc:
+  _has:
+    input: text
+    type: url
+
+onRepeat:
+  _has:
+    input: checkbox
+
+_groups:
+  settings:
+    fields:
+    - videoSrc
+    - onRepeat
