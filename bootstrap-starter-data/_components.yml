@@ -243,6 +243,8 @@ _components:
         content:
           -
             _ref: /_components/paragraph/instances/new
+          -
+            _ref: /_components/youtube-player/instances/footer
         tags:
           _ref: /_components/tags/instances/new
         explore:
