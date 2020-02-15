@@ -73,20 +73,25 @@ function generateFeedImage(data) {
     data.feedImgUrl = data.ledeUrl;
   }
 }
+function addInstanceAdvertesiment(ref) {
+  let temp;
+
+  temp = ref.substring(0, ref.lastIndexOf('/') + 1);
+  return temp.concat('top-side');
+}
 
 function addAdvertesiment(data) {
-  let temp, m;
+  let temp, replacer;
 
   for (let index = 0; index < data.length; index++) {
     if (
       clayutils.getComponentName(data[index]._ref) == 'paragraph' &&
-      index % 4 === 0 && index != 0
+      index % 4 === 0 &&
+      index != 0
     ) {
       temp = data[index];
-      m = temp._ref.replace('paragraph', 'advertisement');
-      temp._ref = m;
-      // t = m.substring(0, m.lastIndexOf('/') + 1);
-      // temp._ref = t.concat('top-side');
+      replacer = temp._ref.replace('paragraph', 'advertisement');
+      temp._ref = addInstanceAdvertesiment(replacer);
       paras.push(temp);
     } else paras.push(data[index]);
   }
@@ -94,7 +99,7 @@ function addAdvertesiment(data) {
 }
 
 module.exports.render = function(uri, data, local) {
-  console.log(local);
+  console.log(local, data);
 
   let { content } = data;
 
