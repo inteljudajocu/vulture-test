@@ -114,6 +114,7 @@ html {
   .layout {
     & > .bottom {
       width: 1180px;
+      padding-top: 1vh;
     }
 
     & > .bottom,

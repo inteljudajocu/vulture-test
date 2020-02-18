@@ -2,6 +2,10 @@ _description:
   Different gallery photo component
 
 gallery:
+  _placeholder:
+    height: 50px
+    text: New carousel
+    required: true
   _has:
     input: complex-list
     props:

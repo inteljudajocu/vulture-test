@@ -25,3 +25,7 @@ _groups:
       - title
       - author
       - imageUrl
+    _placeholder:
+      height: 50px
+      text: New suggestion
+      ifEmpty: image
