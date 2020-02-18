@@ -106,8 +106,8 @@ html {
 
 .side {
   margin-left: 5vh;
-  min-height: 925px;
   display: grid;
+  align-self: stretch;
 }
 
 @media screen and (min-width: 1180px) {
@@ -126,6 +126,7 @@ html {
     & > .wrapper {
       align-items: center;
       display: flex;
+      justify-content: stretch;
     }
 
     &.kiln-edit-mode .wrapper > .main {
