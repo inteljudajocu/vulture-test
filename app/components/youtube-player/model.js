@@ -1,11 +1,6 @@
 'use strict';
 
-const { search } = require('../../services/server/elastic'),
-  query = {
-    query: {
-      match_all: {}
-    }
-  };
+const { search } = require('../../services/server/elastic');
 
 function videoPlayer(videoSrc) {
   if (videoSrc != '') return videoSrc.replace('watch?v=', 'embed/');
@@ -17,22 +12,32 @@ module.exports.render = function(uri, data, local) {
 
   data.videoSrc = videoPlayer(videoSrc);
 
-  return getVideoElastic(data, local).then(data => data);
+  return getVideoElastic(data, local.params.name).then(data => data);
 };
 
-function getVideoElastic(data, local) {
+function getVideoElastic(data, name) {
+  let query = {
+    query: {
+      bool: {
+        must: {
+          query_string: {
+            query: name,
+            default_field: 'internalUrl'
+          }
+        }
+      }
+    }
+  };
+
   return search('local_video', query)
     .then(({ hits }) => hits.hits)
     .then(hits => {
-      let { _id, _source } = hits[0],
-        temp;
+      let { _source } = hits[0];
 
-      return (temp = { id: _id, video: _source.videoUrl });
+      return _source.videoUrl;
     })
     .then(res => {
-      console.log(local.params.name);
-
-      if (res.id.includes(local.params.name)) data.videoSrc = res.video;
+      data.videoSrc = res;
 
       return data;
     });

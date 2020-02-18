@@ -47,7 +47,8 @@ function parseComponent(ops) {
   return {
     key: mainComponent.key,
     source: {
-      videoUrl: videoSrc
+      videoUrl: videoSrc,
+      internalUrl: mainComponent.key
     }
   };
 }
