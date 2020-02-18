@@ -1,17 +1,24 @@
 'use strict';
 
-const { search } = require('../../services/server/elastic'),
-  query = {
+const { search } = require('../../services/server/elastic');
+
+function getArticleElastic(data, name) {
+  let query = {
     _source: ['url', 'date', 'title', 'author', 'image'],
     size: 5,
-    from: 1,
     sort: [{ date: 'desc' }],
     query: {
-      match_all: {}
+      bool: {
+        must_not: {
+          query_string: {
+            query: name,
+            default_field: 'internalUrl'
+          }
+        }
+      }
     }
   };
 
-function getArticleElastic(data) {
   return search('local_articles', query)
     .then(({ hits }) => hits.hits)
     .then(hits => hits.map(({ _source }) => _source))
@@ -22,6 +29,6 @@ function getArticleElastic(data) {
     });
 }
 
-module.exports.render = function(uri, data) {
-  return getArticleElastic(data).then(data => data);
+module.exports.render = function(uri, data, local) {
+  return getArticleElastic(data, local.params.name).then(data => data);
 };

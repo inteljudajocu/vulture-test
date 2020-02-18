@@ -54,6 +54,7 @@ function parseComponent(ops) {
     key: mainComponent.key,
     source: {
       url: canonicalUrl,
+      internalUrl: mainComponent.key,
       date: date,
       title: headline,
       author: authors,

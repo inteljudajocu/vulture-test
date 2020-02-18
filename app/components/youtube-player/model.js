@@ -17,10 +17,10 @@ module.exports.render = function(uri, data, local) {
 
   data.videoSrc = videoPlayer(videoSrc);
 
-  return getVideoElastic(data, local.params.name).then(data => data);
+  return getVideoElastic(data, local).then(data => data);
 };
 
-function getVideoElastic(data, pageName) {
+function getVideoElastic(data, local) {
   return search('local_video', query)
     .then(({ hits }) => hits.hits)
     .then(hits => {
@@ -30,7 +30,9 @@ function getVideoElastic(data, pageName) {
       return (temp = { id: _id, video: _source.videoUrl });
     })
     .then(res => {
-      if (res.id.includes(pageName)) data.videoSrc = res.video;
+      console.log(local.params.name);
+
+      if (res.id.includes(local.params.name)) data.videoSrc = res.video;
 
       return data;
     });
