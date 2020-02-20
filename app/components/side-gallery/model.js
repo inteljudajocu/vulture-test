@@ -13,6 +13,7 @@ module.exports.render = function(uri, data, local) {
 
 function getGalleryElastic(data, name) {
   const query = {
+    _source: ['gallery'],
     size: 1,
     query: {
       bool: {
@@ -26,11 +27,11 @@ function getGalleryElastic(data, name) {
     }
   };
 
-  return search('video', query)
+  return search('galleries', query)
     .then(({ hits }) => hits.hits)
     .then(hits => hits.map(({ _source }) => _source))
     .then(respond => {
-      data.gallery = respond;
+      if (respond.gallery != null) data.gallery = respond;
       return data;
     });
 }
