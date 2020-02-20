@@ -242,6 +242,8 @@ _components:
         slug: ''
         content:
           -
+            _ref: /_components/side-gallery/instances/side
+          -
             _ref: /_components/paragraph/instances/new
           -
             _ref: /_components/youtube-player/instances/footer

@@ -44,9 +44,9 @@ _layouts:
           -
             _ref: /_components/vulture-section/instances/header
         main: main
-        side:
-          -
-            _ref: /_components/side-gallery/instances/side
+        # side:
+        #   -
+        #     _ref: /_components/side-gallery/instances/side
         bottom:
           -
             _ref: /_components/vulture-section/instances/footer

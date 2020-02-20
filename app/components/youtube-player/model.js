@@ -8,15 +8,19 @@ function videoPlayer(videoSrc) {
 }
 
 module.exports.render = function(uri, data, local) {
-  let { videoSrc } = data;
+  let { videoSrc } = data,
+    name = 'a';
 
   data.videoSrc = videoPlayer(videoSrc);
+  if (local.params == null) name = local.url;
+  else name = local.params.name;
 
-  return getVideoElastic(data, local.params.name).then(data => data);
+  return getVideoElastic(data, name).then(data => data);
 };
 
 function getVideoElastic(data, name) {
-  let query = {
+  const query = {
+    size: 1,
     query: {
       bool: {
         must: {
@@ -29,16 +33,13 @@ function getVideoElastic(data, name) {
     }
   };
 
-  return search('local_video', query)
+  return search('video', query)
     .then(({ hits }) => hits.hits)
-    .then(hits => {
-      let { _source } = hits[0];
+    .then(hits => hits.map(({ _source }) => _source))
+    .then(respond => {
+      let result = respond.shift();
 
-      return _source.videoUrl;
-    })
-    .then(res => {
-      data.videoSrc = res;
-
+      if (result.videoUrl != '' && result.videoUrl != null) data.videoSrc = result.videoUrl;
       return data;
     });
 }

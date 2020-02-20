@@ -3,7 +3,7 @@
 const { search } = require('../../services/server/elastic');
 
 function getArticleElastic(data, name) {
-  let query = {
+  const query = {
     _source: ['url', 'date', 'title', 'author', 'image'],
     size: 5,
     sort: [{ date: 'desc' }],
@@ -19,7 +19,7 @@ function getArticleElastic(data, name) {
     }
   };
 
-  return search('local_articles', query)
+  return search('articles', query)
     .then(({ hits }) => hits.hits)
     .then(hits => hits.map(({ _source }) => _source))
     .then(res => {
@@ -30,5 +30,9 @@ function getArticleElastic(data, name) {
 }
 
 module.exports.render = function(uri, data, local) {
-  return getArticleElastic(data, local.params.name).then(data => data);
+  let name = 'a';
+
+  if (local.params == null) name = local.url;
+  else name = local.params.name;
+  return getArticleElastic(data, name).then(data => data);
 };

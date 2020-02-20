@@ -54,7 +54,7 @@ function parseComponent(ops) {
 }
 
 function putToElastic(obj) {
-  return put(index, obj.key, obj.source);
+  return put(index, uriToPublished(obj.key), obj.source);
 }
 
 function handleUnpublish(stream) {

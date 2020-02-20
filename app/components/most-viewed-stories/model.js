@@ -12,7 +12,7 @@ const { search } = require('../../services/server/elastic'),
   };
 
 function getArticleElastic(data) {
-  return search('local_articles', query)
+  return search('articles', query)
     .then(({ hits }) => hits.hits)
     .then(hits => hits.map(({ _source }) => _source))
     .then(res => {
