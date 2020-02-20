@@ -30,6 +30,25 @@ function idQuery(index, id, filterField) {
   return search(index, query);
 }
 
+function idQuerySource(index, id, filterField, source) {
+  const query = {
+    _source: source,
+    size: 1,
+    query: {
+      bool: {
+        must: {
+          query_string: {
+            query: id,
+            default_field: filterField
+          }
+        }
+      }
+    }
+  };
+
+  return search(index, query);
+}
+
 function idQuerySourceByDate(index, id, filterField, source) {
   const query = {
     _source: source,
@@ -51,5 +70,6 @@ function idQuerySourceByDate(index, id, filterField, source) {
 }
 
 module.exports.rawQuery = rawQuery;
-module.exports.indexQuery = idQuery;
+module.exports.idQuery = idQuery;
 module.exports.idQuerySourceByDate = idQuerySourceByDate;
+module.exports.idQuerySource = idQuerySource;

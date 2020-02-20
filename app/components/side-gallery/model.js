@@ -1,6 +1,9 @@
 'use strict';
 
-const { search } = require('../../services/server/elastic');
+const { idQuerySource } = require('../../services/server/querys'),
+  source = ['gallery'],
+  index = 'galleries',
+  filterField = 'internalUrl';
 
 module.exports.render = function(uri, data, local) {
   let name = 'a';
@@ -11,23 +14,8 @@ module.exports.render = function(uri, data, local) {
   return getGalleryElastic(data, name).then(data => data);
 };
 
-function getGalleryElastic(data, name) {
-  const query = {
-    _source: ['gallery'],
-    size: 1,
-    query: {
-      bool: {
-        must: {
-          query_string: {
-            query: name,
-            default_field: 'internalUrl'
-          }
-        }
-      }
-    }
-  };
-
-  return search('galleries', query)
+function getGalleryElastic(data, id) {
+  return idQuerySource(index, id, filterField, source)
     .then(({ hits }) => hits.hits)
     .then(hits => hits.map(({ _source }) => _source))
     .then(respond => {

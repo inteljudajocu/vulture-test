@@ -1,18 +1,12 @@
 'use strict';
 
-const { search } = require('../../services/server/elastic'),
-  query = {
-    _source: ['url', 'date', 'title'],
-    size: 5,
-    from: 1,
-    sort: [{ date: 'desc' }],
-    query: {
-      match_all: {}
-    }
-  };
+const { idQuerySourceByDate } = require('../../services/server/querys'),
+  source = ['url', 'date', 'title'],
+  index = 'articles',
+  filterField = 'internalUrl';
 
-function getArticleElastic(data) {
-  return search('articles', query)
+function getArticleElastic(data, name) {
+  return idQuerySourceByDate(index, name, filterField, source)
     .then(({ hits }) => hits.hits)
     .then(hits => hits.map(({ _source }) => _source))
     .then(res => {
@@ -21,6 +15,10 @@ function getArticleElastic(data) {
     });
 }
 
-module.exports.render = function(uri, data) {
-  return getArticleElastic(data).then(data => data);
+module.exports.render = function(uri, data, local) {
+  let name = 'a';
+
+  if (local.params == null) name = local.url;
+  else name = local.params.name;
+  return getArticleElastic(data, name).then(data => data);
 };
