@@ -2,7 +2,7 @@
 
 const { idQuerySourceByDate } = require('../../services/server/querys'),
   source = ['url', 'date', 'title'],
-  index = 'articles',
+  index = 'local_articles',
   filterField = 'internalUrl';
 
 function getArticleElastic(data, name) {

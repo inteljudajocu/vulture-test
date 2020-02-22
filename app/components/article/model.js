@@ -80,30 +80,30 @@ function addInstanceAdvertesiment(ref) {
   return temp.concat('top-side');
 }
 
-function addAdvertesiment(data) {
-  let temp, replacer;
+// function addAdvertesiment(data) {
+//   let temp, replacer;
 
-  for (let index = 0; index < data.length; index++) {
-    if (
-      clayutils.getComponentName(data[index]._ref) == 'paragraph' &&
-      index % 4 === 0 &&
-      index != 0
-    ) {
-      temp = data[index];
-      replacer = temp._ref.replace('paragraph', 'advertisement');
-      temp._ref = addInstanceAdvertesiment(replacer);
-      paras.push(temp);
-    } else paras.push(data[index]);
-  }
-  return paras;
-}
+//   for (let index = 0; index < data.length; index++) {
+//     if (
+//       clayutils.getComponentName(data[index]._ref) == 'paragraph' &&
+//       index % 4 === 0 &&
+//       index != 0
+//     ) {
+//       temp = data[index];
+//       replacer = temp._ref.replace('paragraph', 'advertisement');
+//       temp._ref = addInstanceAdvertesiment(replacer);
+//       paras.push(temp);
+//     } else paras.push(data[index]);
+//   }
+//   return paras;
+// }
 
-module.exports.render = function(uri, data) {
-  let { content } = data;
+// module.exports.render = function(uri, data) {
+//   let { content } = data;
 
-  addAdvertesiment(content);
-  return data;
-};
+//   addAdvertesiment(content);
+//   return data;
+// };
 
 module.exports.save = function(uri, data, locals) {
   // first, let's get all the synchronous stuff out of the way:

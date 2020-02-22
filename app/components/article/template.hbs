@@ -58,7 +58,7 @@
       {{/unless}}
       {{! don't display generated annotatedTextAria in edit mode. }}
       {{#if @root.locals.edit}}
-        {{> component-list content }}
+        {{> component-list (intermediateAd content this "paragraph" 4) }}
       {{else}}
         {{> component-list (addAnnotatedTextAria content) }}
       {{/if}}
