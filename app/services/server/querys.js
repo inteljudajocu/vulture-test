@@ -69,7 +69,29 @@ function idQuerySourceByDate(index, id, filterField, source) {
   return search(index, query);
 }
 
+function queryIndexTagsByDate(index, tags, source) {
+  const query = {
+    _source: source,
+    size: 5,
+    sort: [{ date: 'desc' }],
+    query: {
+      bool: {
+        must: [
+          {
+            terms: {
+              'items.text': tags
+            }
+          }
+        ]
+      }
+    }
+  };
+
+  return search(index, query);
+}
+
 module.exports.rawQuery = rawQuery;
 module.exports.idQuery = idQuery;
 module.exports.idQuerySourceByDate = idQuerySourceByDate;
 module.exports.idQuerySource = idQuerySource;
+module.exports.queryIndexTagsByDate = queryIndexTagsByDate;

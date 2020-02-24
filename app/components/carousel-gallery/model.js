@@ -1,26 +1,13 @@
 'use strict';
 
-const { search } = require('../../services/server/elastic'),
-  query = {
-    _source: ['image', 'title'],
-    size: 4,
-    from: 1,
-    sort: [{ date: 'desc' }],
-    query: {
-      bool: {
-        must: [
-          {
-            terms: {
-              'items.text': ['pedro', 'steph']
-            }
-          }
-        ]
-      }
-    }
-  };
+const { idQuerySource, queryIndexTagsByDate } = require('../../services/server/querys'),
+  index = 'articles',
+  filterField = 'internalUrl',
+  source1 = ['items'],
+  source = ['image', 'title'];
 
-function getArticleElastic(data) {
-  return search('local_articles', query)
+function getArticlesByTags(data, tags) {
+  return queryIndexTagsByDate(index, tags, source)
     .then(({ hits }) => hits.hits)
     .then(hits => hits.map(({ _source }) => _source))
     .then(res => {
@@ -29,6 +16,26 @@ function getArticleElastic(data) {
     });
 }
 
+function getCurrentArticleTag(data, id) {
+  return idQuerySource(index, id, filterField, source1)
+    .then(({ hits }) => hits.hits)
+    .then(hits => hits.map(({ _source }) => _source))
+    .then(res => {
+      let items = res.map(({ items }) => items),
+        tags = items.shift(),
+        temp = [];
+
+      tags.forEach(element => {
+        temp.push(element.text);
+      });
+      return getArticlesByTags(data, temp);
+    });
+}
+
 module.exports.render = function(uri, data, local) {
-  return getArticleElastic(data).then(data => data);
+  let name = 'a';
+
+  if (local.params == null) name = local.url;
+  else name = local.params.name;
+  return getCurrentArticleTag(data, name).then(data => data);
 };
