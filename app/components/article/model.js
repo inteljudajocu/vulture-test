@@ -98,12 +98,11 @@ function addInstanceAdvertesiment(ref) {
 //   return paras;
 // }
 
-// module.exports.render = function(uri, data) {
-//   let { content } = data;
+module.exports.render = function(uri, data, locals) {
+  console.log(locals, data);
 
-//   addAdvertesiment(content);
-//   return data;
-// };
+  return data;
+};
 
 module.exports.save = function(uri, data, locals) {
   // first, let's get all the synchronous stuff out of the way:

@@ -6,14 +6,11 @@ const { idQuerySourceByDate } = require('../../services/server/querys'),
   filterField = 'internalUrl';
 
 function getArticleElastic(data, name) {
-  return idQuerySourceByDate(index, name, filterField, source)
-    .then(({ hits }) => hits.hits)
-    .then(hits => hits.map(({ _source }) => _source))
-    .then(res => {
-      data.explore = res;
+  return idQuerySourceByDate(index, name, filterField, source).then(res => {
+    data.explore = res;
 
-      return data;
-    });
+    return data;
+  });
 }
 
 module.exports.render = function(uri, data, local) {

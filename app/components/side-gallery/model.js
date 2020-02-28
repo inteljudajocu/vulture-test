@@ -15,11 +15,8 @@ module.exports.render = function(uri, data, local) {
 };
 
 function getGalleryElastic(data, id) {
-  return idQuerySource(index, id, filterField, source)
-    .then(({ hits }) => hits.hits)
-    .then(hits => hits.map(({ _source }) => _source))
-    .then(respond => {
-      if (respond.gallery != null) data.gallery = respond;
-      return data;
-    });
+  return idQuerySource(index, id, filterField, source).then(respond => {
+    if (respond.gallery != null) data.gallery = respond;
+    return data;
+  });
 }

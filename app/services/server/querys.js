@@ -9,7 +9,7 @@ function rawQuery(index) {
     }
   };
 
-  return search(index, query);
+  return respondPromise(search(index, query));
 }
 
 function idQuery(index, id, filterField) {
@@ -27,7 +27,7 @@ function idQuery(index, id, filterField) {
     }
   };
 
-  return search(index, query);
+  return respondPromise(search(index, query));
 }
 
 function idQuerySource(index, id, filterField, source) {
@@ -46,7 +46,7 @@ function idQuerySource(index, id, filterField, source) {
     }
   };
 
-  return search(index, query);
+  return respondPromise(search(index, query));
 }
 
 function idQuerySourceByDate(index, id, filterField, source) {
@@ -66,7 +66,7 @@ function idQuerySourceByDate(index, id, filterField, source) {
     }
   };
 
-  return search(index, query);
+  return respondPromise(search(index, query));
 }
 
 function queryIndexTagsByDate(index, tags, source) {
@@ -87,7 +87,16 @@ function queryIndexTagsByDate(index, tags, source) {
     }
   };
 
-  return search(index, query);
+  return respondPromise(search(index, query));
+}
+
+function respondPromise(query) {
+  return query
+    .then(({ hits }) => hits.hits)
+    .then(hits => hits.map(({ _source }) => _source))
+    .then(res => {
+      return res;
+    });
 }
 
 module.exports.rawQuery = rawQuery;

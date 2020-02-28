@@ -22,11 +22,8 @@ module.exports.render = function(uri, data, local) {
 };
 
 function getVideoElastic(data, id) {
-  return idQuerySource(index, id, filterField, source)
-    .then(({ hits }) => hits.hits)
-    .then(hits => hits.map(({ _source }) => _source))
-    .then(respond => {
-      if (respond.videoUrl != null) data.videoSrc = respond.videoUrl;
-      return data;
-    });
+  return idQuerySource(index, id, filterField, source).then(respond => {
+    if (respond.videoUrl != null) data.videoSrc = respond.videoUrl;
+    return data;
+  });
 }
