@@ -1,6 +1,10 @@
 'use strict';
 
-const { idQuerySource, queryIndexTagsByDate } = require('../../services/server/querys'),
+const {
+    idQuerySource,
+    queryIndexTagsByDate,
+    getPageName
+  } = require('../../services/server/querys'),
   index = 'articles',
   filterField = 'internalUrl',
   source1 = ['items'],
@@ -27,9 +31,7 @@ function getCurrentArticleTag(data, id) {
 }
 
 module.exports.render = function(uri, data, local) {
-  let name = 'a';
+  let name = getPageName(local);
 
-  if (local.params == null) name = local.url;
-  else name = local.params.name;
   return getCurrentArticleTag(data, name).then(data => data);
 };

@@ -99,8 +99,17 @@ function respondPromise(query) {
     });
 }
 
+function getPageName(local) {
+  let name = 'a';
+
+  if (local.params == null) name = local.url;
+  else name = local.params.name;
+  return name;
+}
+
 module.exports.rawQuery = rawQuery;
 module.exports.idQuery = idQuery;
 module.exports.idQuerySourceByDate = idQuerySourceByDate;
 module.exports.idQuerySource = idQuerySource;
 module.exports.queryIndexTagsByDate = queryIndexTagsByDate;
+module.exports.getPageName = getPageName;

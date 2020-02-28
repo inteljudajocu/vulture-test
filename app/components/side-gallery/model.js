@@ -1,15 +1,12 @@
 'use strict';
 
-const { idQuerySource } = require('../../services/server/querys'),
+const { idQuerySource, getPageName } = require('../../services/server/querys'),
   source = ['gallery'],
   index = 'galleries',
   filterField = 'internalUrl';
 
 module.exports.render = function(uri, data, local) {
-  let name = 'a';
-
-  if (local.params == null) name = local.url;
-  else name = local.params.name;
+  let name = getPageName(local);
 
   return getGalleryElastic(data, name).then(data => data);
 };
