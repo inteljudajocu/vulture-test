@@ -16,5 +16,5 @@ function getArticleElastic(data, name) {
 module.exports.render = function(uri, data, local) {
   let name = getPageName(local);
 
-  return getArticleElastic(data, name).then(data => data);
+  return getArticleElastic(data, name);
 };

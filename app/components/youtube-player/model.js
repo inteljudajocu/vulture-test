@@ -2,7 +2,7 @@
 
 const { idQuerySource, getPageName } = require('../../services/server/querys'),
   source = ['videoUrl'],
-  index = 'video',
+  index = 'videos',
   filterField = 'internalUrl';
 
 function videoPlayer(videoSrc) {
@@ -16,7 +16,7 @@ module.exports.render = function(uri, data, local) {
 
   data.videoSrc = videoPlayer(videoSrc);
 
-  return getVideoElastic(data, name).then(data => data);
+  return getVideoElastic(data, name);
 };
 
 function getVideoElastic(data, id) {

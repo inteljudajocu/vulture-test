@@ -99,7 +99,7 @@ function addInstanceAdvertesiment(ref) {
 // }
 
 module.exports.render = function(uri, data, locals) {
-  console.log(locals, data);
+  // console.log(locals, data);
 
   return data;
 };

@@ -3,7 +3,8 @@
 const {
     idQuerySource,
     queryIndexTagsByDate,
-    getPageName
+    getPageName,
+    _idQuery
   } = require('../../services/server/querys'),
   index = 'articles',
   filterField = 'internalUrl',
@@ -21,11 +22,8 @@ function getCurrentArticleTag(data, id) {
   return idQuerySource(index, id, filterField, source1).then(res => {
     let items = res.map(({ items }) => items),
       tags = items.shift(),
-      temp = [];
+      temp = tags.map(({ text }) => text);
 
-    tags.forEach(element => {
-      temp.push(element.text);
-    });
     return getArticlesByTags(data, temp);
   });
 }
@@ -33,5 +31,10 @@ function getCurrentArticleTag(data, id) {
 module.exports.render = function(uri, data, local) {
   let name = getPageName(local);
 
-  return getCurrentArticleTag(data, name).then(data => data);
+  _idQuery(index, name).then(res => {
+    console.log(res);
+    return res;
+  });
+
+  return getCurrentArticleTag(data, name);
 };

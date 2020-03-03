@@ -30,6 +30,18 @@ function idQuery(index, id, filterField) {
   return respondPromise(search(index, query));
 }
 
+function _idQuery(index, id) {
+  const query = {
+    query: {
+      term: {
+        _id: toPublished(id)
+      }
+    }
+  };
+
+  return respondPromise(search(index, query));
+}
+
 function idQuerySource(index, id, filterField, source) {
   const query = {
     _source: source,
@@ -90,25 +102,26 @@ function queryIndexTagsByDate(index, tags, source) {
   return respondPromise(search(index, query));
 }
 
+/**
+ *
+ * @param {Object} query
+ * @returns {Promise}
+ */
 function respondPromise(query) {
-  return query
-    .then(({ hits }) => hits.hits)
-    .then(hits => hits.map(({ _source }) => _source))
-    .then(res => {
-      return res;
-    });
+  return query.then(({ hits }) => hits.hits).then(hits => hits.map(({ _source }) => _source));
+}
+
+function toPublished(id) {
+  return id + '@published';
 }
 
 function getPageName(local) {
-  let name = 'a';
-
-  if (local.params == null) name = local.url;
-  else name = local.params.name;
-  return name;
+  return local.params ? local.params.name : local.url;
 }
 
 module.exports.rawQuery = rawQuery;
 module.exports.idQuery = idQuery;
+module.exports._idQuery = _idQuery;
 module.exports.idQuerySourceByDate = idQuerySourceByDate;
 module.exports.idQuerySource = idQuerySource;
 module.exports.queryIndexTagsByDate = queryIndexTagsByDate;
