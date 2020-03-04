@@ -1,6 +1,6 @@
 'use strict';
 
-const { search } = require('./elastic');
+const { search, getDocument } = require('./elastic');
 
 function rawQuery(index) {
   const query = {
@@ -9,7 +9,7 @@ function rawQuery(index) {
     }
   };
 
-  return respondPromise(search(index, query));
+  return handleHits(search(index, query));
 }
 
 function idQuery(index, id, filterField) {
@@ -27,19 +27,11 @@ function idQuery(index, id, filterField) {
     }
   };
 
-  return respondPromise(search(index, query));
+  return handleHits(search(index, query));
 }
 
 function _idQuery(index, id) {
-  const query = {
-    query: {
-      term: {
-        _id: toPublished(id)
-      }
-    }
-  };
-
-  return respondPromise(search(index, query));
+  return handleDocument(getDocument(index, toPublished(id)));
 }
 
 function idQuerySource(index, id, filterField, source) {
@@ -58,7 +50,7 @@ function idQuerySource(index, id, filterField, source) {
     }
   };
 
-  return respondPromise(search(index, query));
+  return handleHits(search(index, query));
 }
 
 function idQuerySourceByDate(index, id, filterField, source) {
@@ -78,7 +70,7 @@ function idQuerySourceByDate(index, id, filterField, source) {
     }
   };
 
-  return respondPromise(search(index, query));
+  return handleHits(search(index, query));
 }
 
 function queryIndexTagsByDate(index, tags, source) {
@@ -99,7 +91,7 @@ function queryIndexTagsByDate(index, tags, source) {
     }
   };
 
-  return respondPromise(search(index, query));
+  return handleHits(search(index, query));
 }
 
 /**
@@ -107,8 +99,12 @@ function queryIndexTagsByDate(index, tags, source) {
  * @param {Object} query
  * @returns {Promise}
  */
-function respondPromise(query) {
+function handleHits(query) {
   return query.then(({ hits }) => hits.hits).then(hits => hits.map(({ _source }) => _source));
+}
+
+function handleDocument(doc) {
+  return doc.then(({ _source }) => _source);
 }
 
 function toPublished(id) {

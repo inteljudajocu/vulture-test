@@ -1,31 +1,101 @@
-  
-.magazine-section {
+@media screen and (max-width: 767.9px) {
+  .magazine_section {
     display: flex;
     height: fit-content;
     justify-content: center;
     list-style: none;
-  
+    padding: 0;
+
     .magazine-section-item {
       padding-left: 1vh;
-  
+
       .magazine-section-image {
         width: 10vh;
       }
-  
+
       a {
         color: black;
-        font-size: 1.3vh;
+        font-size: 50%;
         font-style: normal;
         font-weight: 400;
-        letter-spacing: 5px;
+        letter-spacing: 5%;
         line-height: 1vh;
         margin: 0;
         text-transform: uppercase;
         text-decoration: none;
       }
     }
-  
+
     li:nth-child(n + 2):not(:nth-child(6)):not(:nth-child(5)) {
       border-left: 1px solid black;
     }
   }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1179.9px) {
+  .magazine_section {
+    display: flex;
+    height: fit-content;
+    justify-content: center;
+    list-style: none;
+    min-width: max-content;
+
+    .magazine-section-item {
+      padding-left: 1vh;
+
+      .magazine-section-image {
+        width: 10vh;
+      }
+
+      a {
+        color: black;
+        font-size: 80%;
+        font-style: normal;
+        font-weight: 400;
+        letter-spacing: 5%;
+        line-height: 1vh;
+        margin: 0;
+        text-transform: uppercase;
+        text-decoration: none;
+      }
+    }
+
+    li:nth-child(n + 2):not(:nth-child(6)):not(:nth-child(5)) {
+      border-left: 1px solid black;
+    }
+  }
+}
+
+@media screen and (min-width: 1180px) {
+  .magazine_section {
+    display: flex;
+    height: fit-content;
+    justify-content: center;
+    list-style: none;
+    min-width: max-content;
+
+    .magazine-section-item {
+      padding-left: 1vh;
+
+      .magazine-section-image {
+        width: 10vh;
+      }
+
+      a {
+        color: black;
+        font-size: 100%;
+        font-style: normal;
+        font-weight: 400;
+        letter-spacing: 5%;
+        line-height: 1vh;
+        margin: 0;
+        text-transform: uppercase;
+        text-decoration: none;
+      }
+    }
+
+    li:nth-child(n + 2):not(:nth-child(6)):not(:nth-child(5)) {
+      border-left: 1px solid black;
+    }
+  }
+}

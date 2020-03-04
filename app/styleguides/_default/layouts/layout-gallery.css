@@ -104,11 +104,11 @@ html {
   margin-left: 25%;
 }
 
-.side {
+/* .side {
   margin-left: 5vh;
   display: grid;
   align-self: stretch;
-}
+} */
 
 @media screen and (min-width: 1180px) {
   .layout {
