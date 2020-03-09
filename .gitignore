@@ -97,5 +97,3 @@ app/client-env.js
 package-lock.json
 
 app/.env
-
-app/components/rss
