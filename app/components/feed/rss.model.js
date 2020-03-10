@@ -2,16 +2,16 @@
 
 function addEntrys(data) {
   const { articles } = data,
-    items = [],
-    feed = [];
+    items = [];
 
   articles.forEach(element => {
     let item = [
       { title: element.title },
-      { a: element.url },
-      { date: element.date },
-      { author: element.author },
-      { img: element.image },
+      { link: element.url },
+      { pubDate: date2UTC(element.date) },
+      { guid: [{ _attr: { isPermaLink: 'false' } }, element.guid] },
+      { author: element.author + '@example.com (' + element.author + ')' },
+      // { img: element.image },
       { description: element.description },
       { category: 'rss' }
     ];
@@ -20,6 +20,12 @@ function addEntrys(data) {
   });
   delete data.articles;
   return (data.feed = items);
+}
+
+function date2UTC(date) {
+  const da = new Date(date);
+
+  return da.toUTCString();
 }
 
 function addMeta(data) {
@@ -38,8 +44,6 @@ module.exports = function(uri, data) {
   addMeta(data);
   addEntrys(data);
   addAttr(data);
-
-  console.log('This is data HIII >>>>>> ', data);
 
   return data;
 };

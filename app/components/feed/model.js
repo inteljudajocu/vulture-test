@@ -13,6 +13,7 @@ function rawArticle(data) {
       let item = {
         title: element.title,
         url: element.url,
+        guid: element.internalUrl,
         date: element.date,
         author: element.author,
         image: element.image,
