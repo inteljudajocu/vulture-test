@@ -16,7 +16,6 @@ function rawArticle(data) {
         guid: element.internalUrl,
         date: element.date,
         author: element.author,
-        image: element.image,
         description: descp
       };
 
