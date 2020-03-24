@@ -9,7 +9,8 @@ const h = require('highland'),
     createFilter,
     getIndexFromFilename,
     getMainComponentRef,
-    getComponentByName
+    getComponentByName,
+    getUri
   } = require('../utils'),
   index = helpers.indexWithPrefix(getIndexFromFilename(__filename)),
   filter = createFilter({
@@ -47,13 +48,14 @@ function parseComponent(ops) {
   return {
     key: mainComponent.key,
     source: {
-      videoUrl: videoSrc
+      videoUrl: videoSrc,
+      internalUrl: mainComponent.key
     }
   };
 }
 
 function putToElastic(obj) {
-  return put(index, obj.key, obj.source);
+  return put(index, uriToPublished(getUri(obj.key)), obj.source);
 }
 
 function handleUnpublish(stream) {

@@ -1,0 +1,11 @@
+<div data-uri="{{ default _ref _self }}"  data-editable="settings">
+    <h2>Feed</h2>  
+    <ul>
+        {{#each articles as |article|}}
+            <li>
+                <img class="" src="{{ article.image }}" data-src="{{ article.image }}">
+                <a href="{{ article.url }}">{{ article.title }}</a>
+            </li>
+        {{/each}}
+    </ul>
+</div>
