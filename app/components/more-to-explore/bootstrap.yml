@@ -1,5 +1,6 @@
 _components:
   componentVariation: toExplore
   title: ''
-  imageUrl: ''
-  author: ''
+  image: ''
+  url: ''
+  author: []

@@ -1,4 +1,15 @@
 _pages:
+  sample-gallery:
+    layout: /_layouts/layout-gallery/instances/gallery
+    main:
+      - /_components/article/instances/sample-gallery
+    head:
+      - /_components/meta-title/instances/gallery
+      - /_components/meta-url/instances/gallery
+      - /_components/meta-description/instances/gallery
+      - /_components/meta-image/instances/gallery
+      - /_components/meta-keywords/instances/gallery
+      - /_components/meta-authors/instances/gallery
   sample-article:
     layout: /_layouts/layout/instances/article
     main:
@@ -26,3 +37,15 @@ _pages:
       - /_components/meta-keywords/instances/homepage
       - /_components/meta-authors/instances/homepage
     main: []
+  rss:
+    url: /
+    layout: /_layouts/layout/instances/rss
+    head:
+      - /_components/meta-title/instances/rss
+      - /_components/meta-url/instances/rss
+      - /_components/meta-description/instances/rss
+      - /_components/meta-image/instances/rss
+      - /_components/meta-keywords/instances/rss
+      - /_components/meta-authors/instances/rss
+    main:
+      - /_components/article/instances/rss

@@ -1,0 +1,59 @@
+.more-to-explore {
+  border-top: 2px solid black;
+  margin-top: 2vh;
+
+  .title {
+    padding-top: 1vh;
+    color: black;
+    font-size: 1.3vh;
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 5px;
+    line-height: 1vh;
+    margin: 0;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  ul {
+    list-style: none;
+    display: flex;
+    padding-left: 0;
+    li {
+      display: flex;
+      flex-flow: column;
+      padding-right: 2vh;
+
+      a {
+        padding-top: 1vh;
+
+        .explore-image {
+          max-width: 100px;
+          max-height: 100px;
+          min-width: 100px;
+          min-height: 100px;
+        }
+
+        .explore-title {
+          max-height: 88px;
+          color: #4a4a4a;
+          font-family: miller-text, Georgia, Serif;
+          font-size: 18px;
+          line-height: 22px;
+          font-weight: normal;
+          text-decoration: none;
+        }
+      }
+
+      .explore-author {
+        color: #767676;
+        font-size: 12px;
+        font-weight: bold;
+        text-decoration: none;
+        font-family: Elderkin, Arial, sans-serif;
+        background-image: null;
+        text-align: left;
+      }
+    }
+  }
+}

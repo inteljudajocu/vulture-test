@@ -1,7 +1,12 @@
 _description:
   Articles suggestion component
 
-imageUrl:
+image:
+  _has:
+    input: text
+    type: url
+
+url:
   _has:
     input: text
     type: url
@@ -12,11 +17,12 @@ title:
 
 author:
   _has:
-    input: text
+    input: simple-list
 
 _groups:
   settings:
     fields:
       - title
       - author
-      - imageUrl
+      - image
+    
