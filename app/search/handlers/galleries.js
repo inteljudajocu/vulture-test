@@ -14,7 +14,7 @@ const h = require('highland'),
   } = require('../utils'),
   index = helpers.indexWithPrefix(getIndexFromFilename(__filename)),
   filter = createFilter({
-    components: ['article', 'tags'],
+    components: ['article', 'side-gallery'],
     includePage: true
   }),
   log = require('../../services/universal/log').setup({ file: __filename });
@@ -42,25 +42,14 @@ function handleStreams(stream) {
 
 function parseComponent(ops) {
   const mainComponent = getMainComponentRef(ops),
-    tags = getComponentByName(ops, 'tags'),
-    { items } = tags.value,
-    { headline, date, canonicalUrl, byline, ledeUrl } = mainComponent.value,
-    authors = [];
-
-  byline.forEach(element => {
-    authors.push(element.text);
-  });
+    sideGal = getComponentByName(ops, 'side-gallery'),
+    { gallery } = sideGal.value;
 
   return {
     key: mainComponent.key,
     source: {
-      url: canonicalUrl,
-      internalUrl: mainComponent.key,
-      date: date,
-      title: headline,
-      author: authors,
-      image: ledeUrl,
-      items
+      gallery: gallery,
+      internalUrl: mainComponent.key
     }
   };
 }

@@ -66,6 +66,10 @@ function getPublishUri(uri) {
   return checkPublish(uri);
 }
 
+function getUri(uri) {
+  return getPageInstance(uri);
+}
+
 function checkPublish(uri) {
   return isPublished(uri);
 }
@@ -95,3 +99,4 @@ module.exports.getMainComponentRef = getMainComponentRef;
 module.exports.createFilter = createFilter;
 module.exports.uriToPublished = uriToPublished;
 module.exports.getComponentRef = getComponentRef;
+module.exports.getUri = getUri;

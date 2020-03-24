@@ -64,6 +64,8 @@ content:
       - list
       - pull-quote
       - code-sample
+      - advertisement
+      - side-gallery
 
 ledeUrl:
   _label: Lede Image URL

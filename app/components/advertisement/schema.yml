@@ -16,3 +16,7 @@ _groups:
     fields:
       - imageUrl
       - imageSrc
+    _placeholder:
+      text: New advertisement
+      height: 250px
+      ifEmpty: imageUrl
