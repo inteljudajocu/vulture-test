@@ -15,4 +15,8 @@ gallery:
 _groups:
   settings:
     fields:
-    - gallery
+      - gallery
+    _placeholder:
+      height: 50px
+      text: New side gallery
+      ifEmpty: gallery

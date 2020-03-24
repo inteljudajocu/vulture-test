@@ -6,6 +6,6 @@ _lists:
         - id: new-standard
           title: Article
         - id: sample-gallery
-          title: Article
+          title: Carousel
   tags: []
   authors: []

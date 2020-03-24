@@ -73,45 +73,13 @@ function generateFeedImage(data) {
     data.feedImgUrl = data.ledeUrl;
   }
 }
-function addInstanceAdvertesiment(ref) {
-  let temp;
-
-  temp = ref.substring(0, ref.lastIndexOf('/') + 1);
-  return temp.concat('top-side');
-}
-
-function addAdvertesiment(data) {
-  let temp, replacer;
-
-  for (let index = 0; index < data.length; index++) {
-    if (
-      clayutils.getComponentName(data[index]._ref) == 'paragraph' &&
-      index % 4 === 0 &&
-      index != 0
-    ) {
-      temp = data[index];
-      replacer = temp._ref.replace('paragraph', 'advertisement');
-      temp._ref = addInstanceAdvertesiment(replacer);
-      paras.push(temp);
-    } else paras.push(data[index]);
-  }
-  return paras;
-}
-
-module.exports.render = function(uri, data, local) {
-  console.log(local, data);
-
-  let { content } = data;
-
-  addAdvertesiment(content);
-  return data;
-};
 
 module.exports.save = function(uri, data, locals) {
   // first, let's get all the synchronous stuff out of the way:
   // sanitizing inputs, setting fields, etc
   sanitizeInputs(data);
   formatDate(data, locals);
+
   setCanonicalUrl(data, locals);
   generateFeedImage(data);
 
