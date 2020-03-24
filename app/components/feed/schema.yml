@@ -1,0 +1,41 @@
+_description:
+  feed component for rss
+
+articles:
+  _placeholder:
+    height: 50px
+    text: New article
+  _has:
+    input: complex-list
+    props:
+    -
+      prop: title
+      _has:
+        input: text
+    -
+      prop: url
+      _has:
+        input: text
+        type: url
+    -
+      prop: date
+      _has:
+        input: text
+    -
+      prop: author
+      _has:
+        input: simple-list
+    -
+      prop: image
+      _has:
+        input: text
+        type: url
+    -
+      prop: description
+      _has:
+        input: text
+
+_groups:
+  settings:
+    fields:
+      - articles

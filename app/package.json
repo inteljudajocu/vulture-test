@@ -24,6 +24,7 @@
     "amphora-search": "7.3.0",
     "amphora-serve-static": "0.0.1",
     "amphora-storage-postgres": "1.2.0",
+    "amphora-rss": "0.8.0",
     "bluebird": "^3.5.3",
     "body-parser": "^1.18.2",
     "clay-kiln": "^8.3.3",
@@ -51,7 +52,8 @@
     "speakingurl": "^14.0.1",
     "striptags": "^3.1.1",
     "typogr": "^0.6.7",
-    "url-parse": "^1.4.0"
+    "url-parse": "^1.4.0",
+    "xml": "1.0.1"
   },
   "devDependencies": {
     "dotenv": "^6.2.0",

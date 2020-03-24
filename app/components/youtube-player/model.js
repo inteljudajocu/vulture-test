@@ -1,8 +1,8 @@
 'use strict';
 
-const { idQuerySource } = require('../../services/server/querys'),
+const { idQuerySource, getPageName } = require('../../services/server/querys'),
   source = ['videoUrl'],
-  index = 'video',
+  index = 'videos',
   filterField = 'internalUrl';
 
 function videoPlayer(videoSrc) {
@@ -12,21 +12,16 @@ function videoPlayer(videoSrc) {
 
 module.exports.render = function(uri, data, local) {
   let { videoSrc } = data,
-    name = 'a';
+    name = getPageName(local);
 
   data.videoSrc = videoPlayer(videoSrc);
-  if (local.params == null) name = local.url;
-  else name = local.params.name;
 
-  return getVideoElastic(data, name).then(data => data);
+  return getVideoElastic(data, name);
 };
 
 function getVideoElastic(data, id) {
-  return idQuerySource(index, id, filterField, source)
-    .then(({ hits }) => hits.hits)
-    .then(hits => hits.map(({ _source }) => _source))
-    .then(respond => {
-      if (respond.videoUrl != null) data.videoSrc = respond.videoUrl;
-      return data;
-    });
+  return idQuerySource(index, id, filterField, source).then(respond => {
+    if (respond.videoUrl != null) data.videoSrc = respond.videoUrl;
+    return data;
+  });
 }
