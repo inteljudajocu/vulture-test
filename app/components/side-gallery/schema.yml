@@ -1,5 +1,5 @@
 _description:
-  Different gallery photo component
+  Side gallery component
 
 gallery:
   _has:
@@ -15,4 +15,8 @@ gallery:
 _groups:
   settings:
     fields:
-    - gallery
+      - gallery
+    _placeholder:
+      height: 50px
+      text: New side gallery
+      ifEmpty: gallery

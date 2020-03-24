@@ -24,4 +24,5 @@ _groups:
     fields:
       - title
       - author
-      - imageUrl
+      - image
+    

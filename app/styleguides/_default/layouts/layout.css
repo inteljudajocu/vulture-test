@@ -106,14 +106,15 @@ html {
 
 .side {
   margin-left: 5vh;
-  min-height: 925px;
   display: grid;
+  align-self: stretch;
 }
 
 @media screen and (min-width: 1180px) {
   .layout {
     & > .bottom {
       width: 1180px;
+      padding-top: 1vh;
     }
 
     & > .bottom,
@@ -126,6 +127,7 @@ html {
     & > .wrapper {
       align-items: center;
       display: flex;
+      justify-content: stretch;
     }
 
     &.kiln-edit-mode .wrapper > .main {
