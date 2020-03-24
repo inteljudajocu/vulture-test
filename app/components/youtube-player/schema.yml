@@ -13,5 +13,9 @@ onRepeat:
 _groups:
   settings:
     fields:
-    - videoSrc
-    - onRepeat
+      - videoSrc
+      - onRepeat
+    _placeholder:
+        text: New video
+        height: 250px
+        ifEmpty: videoSrc
