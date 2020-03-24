@@ -22,7 +22,6 @@ html {
   background-color: #e7e7e7;
 }
 
-.layout a:focus,
 .layout button:focus,
 .layout input:focus,
 .layout select:focus,
@@ -67,6 +66,8 @@ html {
     padding-right: 10px;
     padding-left: 10px;
     width: 100%;
+    text-align: center;
+    text-align: -webkit-center;
   }
 }
 
@@ -101,14 +102,14 @@ html {
 
 .main {
   max-width: 600px;
-  margin-left: 25%;
+  text-align: center;
 }
 
-.side {
+/* .side {
   margin-left: 5vh;
   display: grid;
   align-self: stretch;
-}
+} */
 
 @media screen and (min-width: 1180px) {
   .layout {
@@ -118,14 +119,16 @@ html {
 
     & > .bottom,
     & > .page-header,
-    & > .top,
     & > .wrapper {
       margin: 0 auto;
     }
 
+    .top {
+      margin: 20px auto;
+    }
+
     & > .wrapper {
       align-items: center;
-      display: flex;
       justify-content: stretch;
     }
 
