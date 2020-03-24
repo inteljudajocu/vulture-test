@@ -9,7 +9,8 @@ const h = require('highland'),
     createFilter,
     getIndexFromFilename,
     getMainComponentRef,
-    getComponentByName
+    getComponentByName,
+    getUri
   } = require('../utils'),
   index = helpers.indexWithPrefix(getIndexFromFilename(__filename)),
   filter = createFilter({
@@ -50,12 +51,11 @@ function parseComponent(ops) {
     authors.push(element.text);
   });
 
-  console.log(authors);
-
   return {
     key: mainComponent.key,
     source: {
       url: canonicalUrl,
+      internalUrl: mainComponent.key,
       date: date,
       title: headline,
       author: authors,
@@ -66,7 +66,7 @@ function parseComponent(ops) {
 }
 
 function putToElastic(obj) {
-  return put(index, obj.key, obj.source);
+  return put(index, uriToPublished(getUri(obj.key)), obj.source);
 }
 
 function handleUnpublish(stream) {

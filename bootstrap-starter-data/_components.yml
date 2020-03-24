@@ -8,6 +8,10 @@ _components:
         title: ''
       homepage:
         title: ''
+      gallery:
+        title: ''
+      rss:
+        title: ''
   meta-url:
     instances:
       new:
@@ -16,6 +20,10 @@ _components:
         url: ''
       homepage:
         url: ''
+      gallery:
+        url: ''
+      rss:
+        url: ''
   meta-description:
     instances:
       new:
@@ -23,6 +31,10 @@ _components:
       new-author:
         description: ''
       homepage:
+        description: ''
+      gallery:
+        description: ''
+      rss:
         description: ''
   meta-icons:
     instances:
@@ -39,6 +51,10 @@ _components:
         imageUrl: ''
       homepage:
         imageUrl: ''
+      gallery:
+        imageUrl: ''
+      rss:
+        imageUrl: ''
   meta-authors:
     instances:
       new:
@@ -47,6 +63,10 @@ _components:
         authors: []
       homepage:
         authors: []
+      gallery:
+        authors: []
+      rss:
+        authors: []
   meta-keywords:
     instances:
       new:
@@ -54,6 +74,10 @@ _components:
       new-author:
         tags: []
       homepage:
+        tags: []
+      gallery:
+        tags: []
+      rss:
         tags: []
   meta-site:
     instances:
@@ -89,7 +113,22 @@ _components:
         siteName: Clay Demo
         ogType: website
         pageType: Home Page
-
+      gallery:
+        twitter: '@claydemo'
+        facebook: 'claydemo'
+        facebookID: 'claydemo'
+        vertical: ''
+        siteName: Clay Demo
+        ogType: website
+        pageType: Home Page
+      rss:
+        twitter: '@claydemo'
+        facebook: 'claydemo'
+        facebookID: 'claydemo'
+        vertical: ''
+        siteName: Clay Demo
+        ogType: website
+        pageType: Home Page
   # layout components
   header:
     instances:
@@ -152,6 +191,21 @@ _components:
         image: ''
         url: ''
         author: []
+  side-gallery:
+    instances:
+      side:
+        gallery: []
+  youtube-player:
+    instances:
+      footer:
+        videoSrc: ''
+        onRepeat: false
+  carousel-gallery:
+    instances:
+      footer:
+        componentVariation: gallery
+        ledeImage: ''
+        gallery: []
   paragraph:
     instances:
       new:
@@ -176,6 +230,10 @@ _components:
     instances:
       new:
         title: ''
+  feed:
+    instances:
+      rss:
+        articles: []
   list:
     instances:
       new:
@@ -196,6 +254,33 @@ _components:
         link: ''
   article:
     instances:
+      rss:
+        headline: ''
+        content:
+          -
+            _ref: /_components/feed/instances/rss
+      sample-gallery:
+        headline: ''
+        feedImgUrl: ''
+        ledeUrl: ''
+        byline:
+          -
+            text: Clay
+        ledeCaption: ''
+        ledeCredit: ''
+        slug: ''
+        content:
+          -
+            _ref: /_components/side-gallery/instances/side
+          -
+            _ref: /_components/paragraph/instances/new
+          -
+            _ref: /_components/youtube-player/instances/footer
+        tags:
+          _ref: /_components/tags/instances/new
+        explore:
+          -
+            _ref: /_components/carousel-gallery/instances/footer
       new-standard:
         headline: ''
         feedImgUrl: ''

@@ -64,6 +64,8 @@ content:
       - list
       - pull-quote
       - code-sample
+      - advertisement
+      - side-gallery
 
 ledeUrl:
   _label: Lede Image URL
@@ -122,6 +124,7 @@ explore:
   _componentList:
     include:
       - more-to-explore
+      - related-galleries
 
 tags:
   _component:

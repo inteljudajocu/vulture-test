@@ -1,0 +1,21 @@
+<div data-uri="{{ default _ref _self }}" class="side-gal" data-editable="settings">
+    {{#if gallery}}
+    <h1>Side gallery</h1>
+    <div class="row">
+        <div class="row__inner">
+            {{#each gallery as |photo|}}
+            <div class="tile">
+                <div class="tile__media">
+                <img class="tile__img" src="{{ photo.image }}"/>
+                </div>
+                {{!-- <div class="tile__details">
+                <div class="tile__title">
+                    Top Gear
+                </div>
+                </div> --}}
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    {{/if}}
+</div>
