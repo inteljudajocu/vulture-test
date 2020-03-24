@@ -8,7 +8,7 @@ const { idQuerySource, getPageName } = require('../../services/server/querys'),
 module.exports.render = function(uri, data, local) {
   let name = getPageName(local);
 
-  return getGalleryElastic(data, name).then(data => data);
+  return getGalleryElastic(data, name);
 };
 
 function getGalleryElastic(data, id) {

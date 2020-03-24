@@ -8,7 +8,7 @@
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
       {{#range 1 5}}      
-      <li data-target="#myCarousel" data-slide-to="{{this}}"></li>
+        <li data-target="#myCarousel" data-slide-to="{{this}}"></li>
       {{/range}}
     </ol>
 
@@ -20,7 +20,9 @@
       </div>
       {{/if}}
       <div class="item">
-        <img class="carousel-array" src="{{ photo.image }}" alt="{{ photo.title }}">
+        <img class="carousel-array" 
+          src="{{ photo.image }}" title="{{ photo.title }}" 
+          onerror="this.onerror=null;this.src='https://webhostingmedia.net/wp-content/uploads/2018/01/http-error-404-not-found.png';this.title='Filler Image'">
       </div>
     {{/each}}
     <!-- Left and right controls -->
