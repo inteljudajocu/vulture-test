@@ -57,14 +57,15 @@
       </div>
       {{/unless}}
       {{! don't display generated annotatedTextAria in edit mode. }}
-      {{#if @root.locals.edit}}
+      {{!-- {{#if @root.locals.edit}}
         {{> component-list content }}
-      {{else}}
-        {{> component-list (addAnnotatedTextAria content) }}
-      {{/if}}
+      {{else}} --}}
+        {{> component-list (intermediateAd content this "paragraph" 4) }}
+      {{!-- {{/if}} --}}
     </div>
 
     {{! Tags }}
     {{> tags tags}}
+    {{> component-list explore}}
   </section>
 </article>

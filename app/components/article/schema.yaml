@@ -64,6 +64,8 @@ content:
       - list
       - pull-quote
       - code-sample
+      - advertisement
+      - side-gallery
 
 ledeUrl:
   _label: Lede Image URL
@@ -117,6 +119,12 @@ canonicalUrl:
   _publish: url
   _has:
     help: Canonical URL of an article. Set when the article publishes.
+
+explore:
+  _componentList:
+    include:
+      - more-to-explore
+      - related-galleries
 
 tags:
   _component:

@@ -1,0 +1,138 @@
+.a {
+  color: #000;
+}
+
+.magazine-section {
+  background-color: rgb(255, 255, 255);
+  border-color: #000;
+  box-shadow: 1px 1px 4px 0 rgba(0, 0, 0, 0.1);
+  position: relative;
+  width: 100%;
+  z-index: 3;
+  padding-bottom: 5%;
+  /* display: flex;
+   justify-content: space-between; 
+  .logo { order: 1; }
+  .magazine-menu { order: 2; }
+  .menu-icon { order: 3; } */
+
+  .magazine-menu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: scroll;
+    background-color: #fff;
+
+    .magazine-menu-item {
+      .magazine-site {
+        display: block;
+        padding: 20px 20px;
+        border-right: 1px solid #f4f4f4;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .logo {
+    display: block;
+    float: left;
+    font-size: 2em;
+    padding: 10px 20px;
+    text-decoration: none;
+  }
+
+  .magazine-menu {
+    clear: both;
+    max-height: 0;
+    transition: max-height 0.2s ease-out;
+  }
+
+  .menu-icon {
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+    padding: 28px 20px;
+    position: relative;
+    user-select: none;
+
+    .navicon {
+      background: #333;
+      display: block;
+      height: 2px;
+      position: relative;
+      transition: background 0.2s ease-out;
+      width: 18px;
+    }
+
+    .navicon:before,
+    .navicon:after {
+      background: #333;
+      content: '';
+      display: block;
+      height: 100%;
+      position: absolute;
+      transition: all 0.2s ease-out;
+      width: 100%;
+    }
+
+    .navicon:before {
+      top: 5px;
+    }
+
+    .navicon:after {
+      top: -5px;
+    }
+  }
+
+  .menu-btn {
+    display: none;
+  }
+
+  .menu-btn:checked ~ .magazine-menu {
+    max-height: 240px;
+  }
+
+  .menu-btn:checked ~ .menu-icon .navicon {
+    background: transparent;
+  }
+
+  .menu-btn:checked ~ .menu-icon .navicon:before {
+    transform: rotate(-45deg);
+  }
+
+  .menu-btn:checked ~ .menu-icon .navicon:after {
+    transform: rotate(45deg);
+  }
+
+  .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+  .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+    top: 0;
+  }
+
+  .magazine-site:hover,
+  .menu-btn:hover {
+    background-color: #f4f4f4;
+  }
+}
+
+@media (min-width: 1094px) {
+  .magazine-section {
+    .magazine-menu {
+      clear: none;
+      float: right;
+      max-height: none;
+
+      .magazine-menu-item {
+        float: right;
+
+        .magazine-site {
+          padding: 20px 30px;
+        }
+      }
+    }
+
+    .menu-icon {
+      display: none;
+    }
+  }
+}

@@ -2,6 +2,10 @@ _description:
   most view stories articles
 
 stories:
+  _placeholder:
+    height: 50px
+    text: New story
+    required: true
   _has:
     input: complex-list
     validate:
