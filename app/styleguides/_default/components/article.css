@@ -40,6 +40,7 @@ $body-stack: Helvetica, serif;
     .bylines {
       font-size: 14px;
       letter-spacing: normal;
+      text-align: left;
     }
 
     .bylines a {
@@ -49,7 +50,7 @@ $body-stack: Helvetica, serif;
   }
 
   .lede-image-wrapper {
-    margin-bottom: 20px
+    margin-bottom: 20px;
   }
 
   .lede-image-wrapper {

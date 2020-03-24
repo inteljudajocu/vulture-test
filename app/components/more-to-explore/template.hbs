@@ -1,0 +1,20 @@
+<div data-uri="{{ default _ref _self }}" class="{{ componentVariation }}" data-editable="settings">
+    <h1 class="title">More to explore</h1>
+    <ul>
+        {{#each explore}}
+        <li>
+            <a href="{{ url }}">
+                <img class="explore-image" src="{{ image }}" data-src="{{ image }}">
+            </a>
+            <a href="{{ url }}">
+                <span class="explore-title">{{ title }}</span>
+            </a>
+            <ol>
+                {{#each author as |thor|}}
+                <li><span class="explore-author">{{ thor }}</span></li>
+                {{/each }}
+            </ol>
+        </li>
+        {{/each }}
+    </ul>
+</div>

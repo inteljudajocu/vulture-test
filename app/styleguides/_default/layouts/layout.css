@@ -80,7 +80,7 @@ html {
 }
 
 @media screen and (min-width: 768px) and (max-width: 1179.9px) {
-  .layout{
+  .layout {
     & > .wrapper,
     & > .bottom {
       padding: 0 7vw;
@@ -99,10 +99,22 @@ html {
   }
 }
 
+.main {
+  max-width: 600px;
+  margin-left: 25%;
+}
+
+.side {
+  margin-left: 5vh;
+  display: grid;
+  align-self: stretch;
+}
+
 @media screen and (min-width: 1180px) {
   .layout {
     & > .bottom {
       width: 1180px;
+      padding-top: 1vh;
     }
 
     & > .bottom,
@@ -115,8 +127,7 @@ html {
     & > .wrapper {
       align-items: center;
       display: flex;
-      justify-content: center;
-      max-width: $wrapperMaxWidth;
+      justify-content: stretch;
     }
 
     &.kiln-edit-mode .wrapper > .main {

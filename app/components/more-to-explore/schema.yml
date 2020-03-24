@@ -1,0 +1,28 @@
+_description:
+  Articles suggestion component
+
+image:
+  _has:
+    input: text
+    type: url
+
+url:
+  _has:
+    input: text
+    type: url
+
+title:
+  _has:
+    input: text
+
+author:
+  _has:
+    input: simple-list
+
+_groups:
+  settings:
+    fields:
+      - title
+      - author
+      - image
+    
