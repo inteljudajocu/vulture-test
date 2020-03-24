@@ -1,4 +1,6 @@
 .tags {
+  text-align: initial;
+
   .title {
     display: inline;
     font: 12px / 16px Courier;
